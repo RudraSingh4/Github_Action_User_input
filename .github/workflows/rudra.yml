@@ -6,15 +6,15 @@ on:
         inp1:
           description: 'Enter String-1'
           required: false
-          default: 'Hi '
+          default: 'Rudra '
         inp2:
           description: 'Enter String-2'
-          default: 'Hello'
+          default: 'Pratap'
           required: false
 
 env:
-  a: ${{github.event.inputs.inp1}}
-  b: ${{github.event.inputs.inp2}}
+  x: ${{github.event.inputs.inp1}}
+  y: ${{github.event.inputs.inp2}}
 
 jobs:
   job1:
@@ -27,7 +27,7 @@ jobs:
           python-version: '3.10' 
       - run: | 
           cd Main
-          python rudra.py $a $b
+          python rudra.py $x $y
 
 
       - name: success message
