@@ -27,7 +27,7 @@ jobs:
           python-version: '3.10' 
       - run: | 
           cd Main
-          python rudra.py 
+          python rudra.py $a $b
 
 
       - name: success message
