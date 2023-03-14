@@ -1,0 +1,35 @@
+name: MyWorkflow
+
+on:
+  workflow_dispatch:
+      inputs:
+        inp1:
+          description: 'Enter String-1'
+          required: false
+          default: 'Hi '
+        inp2:
+          description: 'Enter String-2'
+          default: 'Hello'
+          required: false
+
+env:
+  a: ${{github.event.inputs.inp1}}
+  b: ${{github.event.inputs.inp2}}
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+      - run: | 
+          cd Main
+          python rudra.py $Rudra $Pratap 
+
+
+      - name: success message
+      
+        run: echo ${{github.event.inputs.inp1}}
